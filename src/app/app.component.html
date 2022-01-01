@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">#petejokes</a>
+</nav>
+
+<button class="btn btn-info m-3" data-toggle="modal" data-target="#addJoke">What did Pete say?</button>
+
+<div class="modal fade" id="addJoke">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Did Pete tell a joke?</h5>
+                <button type="button" (click)="initpeteJoke()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-light"><span class="fa fa-calendar"></span></span>
+                    </div>
+                    <input type="date" class="form-control" [(ngModel)]="peteJoke.saidOn" placeholder="When did he say it?" />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-light"><span class="fa fa-bullhorn"></span></span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="peteJoke.saidWhat" placeholder="What did he say?" />
+                </div>
+
+                <label>Pete joke meter:</label>
+                <n-scales [(ngModel)]="peteJoke.jokeMeter" [value]="peteJoke.jokeMeter"></n-scales>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="addJoke()" class="btn btn-primary" data-dismiss="modal">Capture Pete's Joke</button>
+                <button type="button" (click)="initpeteJoke()" class="btn btn-secondary" data-dismiss="modal">Nevermind</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card m-2" *ngFor="let joke of peteJokes">
+    <div class="card-header">
+        On <strong>{{joke.saidOn | date: 'mediumDate'}}</strong> Pete said <em>"{{joke.saidWhat}}"</em>
+        <div class="badge joke-meter" [style.background-color]="joke.jokeMeter==1 ? 'rgb(255,0,0)' : joke.jokeMeter==2 ? 'rgb(255, 60, 0)' : joke.jokeMeter==3 ? 'rgb(255, 136, 0)' : joke.jokeMeter==4 ? 'rgb(255, 196, 0)' : joke.jokeMeter==5 ? 'rgb(251, 255, 0)' : joke.jokeMeter==6 ? 'rgb(195, 255, 0)' : joke.jokeMeter==7 ? 'rgb(157, 255, 0)' : joke.jokeMeter==8 ? 'rgb(102, 255, 0)' : joke.jokeMeter==9 ? 'rgb(102, 255, 0)' : 'rgb(38, 255, 0)'">{{joke.jokeMeter}}</div>
+    </div>
+</div>
+
+<app-alert [msgData]="alert"></app-alert>

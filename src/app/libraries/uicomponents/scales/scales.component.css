@@ -1,0 +1,46 @@
+.scale-container {
+    position: relative;
+}
+.scale-item {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 27px;
+    height: 27px;
+    margin: 1px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 50%;
+}
+.scale-clear {
+    margin-left: 3px;
+}
+.scale-item1 {
+    background-color: rgb(255, 0, 0);
+}
+.scale-item2 {
+    background-color: rgb(255, 60, 0);
+}
+.scale-item3 {
+    background-color: rgb(255, 136, 0);
+}
+.scale-item4 {
+    background-color: rgb(255, 196, 0);
+}
+.scale-item5 {
+    background-color: rgb(251, 255, 0);
+}
+.scale-item6 {
+    background-color: rgb(195, 255, 0);
+}
+.scale-item7 {
+    background-color: rgb(157, 255, 0);
+}
+.scale-item8 {
+    background-color: rgb(102, 255, 0);
+}
+.scale-item9 {
+    background-color: rgb(102, 255, 0);
+}
+.scale-item10 {
+    background-color: rgb(38, 255, 0);
+}
